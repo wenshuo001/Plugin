@@ -13,13 +13,6 @@ android {
 
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
     signingConfigs {
         def alias = "hxbkey"
         def password = "hxbxbkey"
@@ -39,6 +32,16 @@ android {
             storePassword(password)
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+
 
 }
 

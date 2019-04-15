@@ -19,12 +19,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        checkPermission();
         PluginManager.getInstance().init(this);
 
         findViewById(R.id.jiazai).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String path= Utils.copyAssetAndWrite(MainActivity.this,"plug.apk");
+                String path= Utils.copyAssetAndWrite(MainActivity.this, "plu.apk");
                 //加载apk
                 PluginManager.getInstance().loadApk(path);
             }
