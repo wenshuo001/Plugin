@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.jiazai).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String path= Utils.copyAssetAndWrite(MainActivity.this, "plu.apk");
+                String path= Utils.copyAssetAndWrite(MainActivity.this, "pluginapp.apk");
                 //加载apk
                 PluginManager.getInstance().loadApk(path);
             }
