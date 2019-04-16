@@ -9,10 +9,10 @@ import android.os.Bundle;
  * DataTime: 2019/4/15
  * Description:
  */
-public class PluginActivity extends Activity implements IPlugin {
+public class PluginLibActivity extends Activity implements IPlugin {
     private int mFrom = FROM_INTERNAl;
     //插件的上下文
-    private Activity mProxyActivity;
+    public Activity mProxyActivity;
 
     @Override
     public void onCreate(Bundle saveInstanceState) {

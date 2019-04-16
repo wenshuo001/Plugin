@@ -12,7 +12,7 @@ import android.os.Bundle;
 public interface IPlugin {
 
     int FROM_INTERNAl = 0;//从内部跳转
-    int FROM_EXTERNAL = 0;//从外部跳转
+    int FROM_EXTERNAL = 1;//从外部跳转
 
     void onCreate(Bundle saveInstanceState);
 

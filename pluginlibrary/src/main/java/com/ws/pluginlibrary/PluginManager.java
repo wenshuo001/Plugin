@@ -32,16 +32,16 @@ public class PluginManager {
 
 
     private PluginApk mPluginApk;
-    private Context context;
+    private Context mContext;
 
     public void init(Context context){
-        this.context=context;
+        this.mContext=context.getApplicationContext();
     }
 
     //加载插件apk
 
     public void loadApk(String apkPath){
-        PackageInfo packageInfo = context.getPackageManager().getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES|PackageManager.GET_SERVICES);
+        PackageInfo packageInfo = mContext.getPackageManager().getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES|PackageManager.GET_SERVICES);
         if (packageInfo == null) {
             return;
         }
@@ -58,8 +58,8 @@ public class PluginManager {
 
     //创建访问插件apk的DexClassLoader
     public DexClassLoader createDexClassLoader(String apkPath){
-        File file = context.getDir("dex",Context.MODE_PRIVATE);
-        return new DexClassLoader(apkPath,file.getAbsolutePath(),null,context.getClassLoader());
+        File file = mContext.getDir("dex",Context.MODE_PRIVATE);
+        return new DexClassLoader(apkPath,file.getAbsolutePath(),null,mContext.getClassLoader());
     }
     //创建访问插件apk资源的Aseetmanager对象
     public AssetManager createAssetManager(String apkPath) {
@@ -75,7 +75,7 @@ public class PluginManager {
     }
     //创建访问插件apk资源的Resource对象
     public Resources createResources(AssetManager am){
-        Resources res= context.getResources();
+        Resources res= mContext.getResources();
         return new Resources(am,res.getDisplayMetrics(),res.getConfiguration());
     }
 }
